@@ -17,6 +17,10 @@ export class FileUploadComponent implements OnInit {
   
   constructor(private uploadService: FileUploadService) { }
 
+  selectFile(event: any): void {
+    this.currentFile = event.target.files.item(0);
+  }
+
   upload(): void {
     if (this.currentFile) {
       this.uploadService.upload(this.currentFile).subscribe({
