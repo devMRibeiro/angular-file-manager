@@ -6,9 +6,9 @@ import { FileUploadService } from '../../services/file-upload.service';
 
 @Component({
   selector: 'app-file-upload',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './file-upload.component.html',
-  styleUrl: './file-upload.component.css'
+  styleUrl: './file-upload.component.css',
 })
 export class FileUploadComponent implements OnInit {
   currentFile?: File;
