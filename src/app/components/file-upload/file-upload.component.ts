@@ -21,6 +21,13 @@ export class FileUploadComponent implements OnInit {
     this.currentFile = event.target.files.item(0);
   }
 
+  fileName: string | null = null;
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    this.fileName = file ? file.name : null;
+  }
+
   upload(): void {
     if (this.currentFile) {
       this.uploadService.upload(this.currentFile).subscribe({
@@ -30,13 +37,9 @@ export class FileUploadComponent implements OnInit {
             this.fileInfos = this.uploadService.getFiles();
           }
         },
-        error: (err: any) => {
-          console.log(err);
-
-          if (err.error && err.error.message)
-            this.message = err.error.message;
-          else
-            this.message = 'Could not upload the file!';
+        error: (err: Error) => {
+          console.log(err.message);
+          this.message = err.message;
         },
         complete: () => {
           this.currentFile = undefined;
