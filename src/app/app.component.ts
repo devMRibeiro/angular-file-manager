@@ -10,5 +10,5 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-file-upload';
+  title = 'File Manager';
 }
