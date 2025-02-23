@@ -18,11 +18,11 @@
 
 <div class="card mt-3">
     <div class="card-header">List of Files</div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush" style="max-height: 40vh; overflow-y: auto;">
         @for (file of fileInfos | async; track file.name) {
-            <li class="list-group-item">
-                <a href="{{ file.url }}">{{ file.name }}</a>
-            </li>
+            <a href="{{ file.url }}" class="list-group-item">
+                {{ file.name }}
+            </a>
         }
     </ul>
 </div>
